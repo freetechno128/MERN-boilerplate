@@ -17,6 +17,10 @@ This is a boilerplate for MERN projects.
 * OAuth2.0 signin with passportJS
 * Change API endpoint names to conform with RESTful best practices
 * Clean ReactJS code
+* Account password reset
+* Delete account
+* Add expiry to JWT
+* Add rate limiting
 
 
 ## Built With
