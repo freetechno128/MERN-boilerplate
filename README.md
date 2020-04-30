@@ -10,14 +10,14 @@ This is a boilerplate for MERN projects.
 * :white_check_mark: Multi-user
 * :white_check_mark: Form validation
 
-## Getting Started
-
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 ## TODO
 
 * Timing attack mitigation
 * OAuth2.0 signin with passportJS
+* Change API endpoint names to conform with RESTful best practices
+* Clean ReactJS code
+
 
 ## Built With
 
@@ -25,9 +25,11 @@ These instructions will get you a copy of the project up and running on your loc
 * [MongoDB](https://github.com/mongodb/mongo) - MongoDB
 * [Express](https://expressjs.com/) - HTTP server
 
+
 ## Authors
 
 * **Philippe Talarico** - [freetechno128](https://github.com/freetechno128)
+
 
 ## License
 
