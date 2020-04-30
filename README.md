@@ -2,15 +2,22 @@
 
 This is a boilerplate for MERN projects.
 
+![Screen Preview](https://raw.githubusercontent.com/freetechno128/MERN-boilerplate/master/mern.png)
+
+
 ## Features
 * :white_check_mark: JWT authentication
 * :white_check_mark: Multi-user
 * :white_check_mark: Form validation
-* :black_square_button: Timing attack mitigation
 
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+
+## TODO
+
+* Timing attack mitigation
+* OAuth2.0 signin with passportJS
 
 ## Built With
 
