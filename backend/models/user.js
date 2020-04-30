@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const bcrypt = require("bcrypt");
 
+// User schema
 const userSchema = new Schema({
     username: {
         type: String,
@@ -19,6 +20,8 @@ const userSchema = new Schema({
     }
 });
 
+
+// Before a user is saved to the DB, hash the password
 userSchema.pre("save", function (next) {
     const user = this;
     if (!user.isModified("password")) return next();
@@ -29,6 +32,7 @@ userSchema.pre("save", function (next) {
     });
 });
 
+// User method to compare the hashed password to the user input
 userSchema.methods.checkPassword = function (passwordAttempt, callback) {
     bcrypt.compare(passwordAttempt, this.password, (err, isMatch) => {
         if (err) return callback(err);
@@ -36,6 +40,7 @@ userSchema.methods.checkPassword = function (passwordAttempt, callback) {
     });
 };
 
+// User method to return User object without the password
 userSchema.methods.withoutPassword = function () {
     const user = this.toObject();
     delete user.password;

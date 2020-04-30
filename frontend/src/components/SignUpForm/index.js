@@ -10,7 +10,6 @@ const SignUpForm = (props) => {
     const [ password, setPassword ] = useState("");
     const [ populatedCreds, setPopulatedCreds ] = useState(null);
     const [ isLoading, setIsLoading ] = useState(false);
-    const [ errorMessage, setErrorMessage ] = useState("");
 
     const { signup } = useContext(AuthContext);
 
@@ -32,20 +31,16 @@ const SignUpForm = (props) => {
 
     const fakeUsernameValidation = () => {
         setIsLoading(true);
-        setTimeout(() => {
             signup({
                 username: username,
-                password: password,
-                errorMessage: errorMessage
+                password: password
             })
             .then(()=> setIsLoading(false))
             .then(()=> props.history.push("/protected"))
             .catch(err => {
                 setIsLoading(false);
-                setErrorMessage(err.response.data.message);
                 setPopulatedCreds(false);
             });
-        }, 0);
     };
 
     return (
@@ -91,11 +86,6 @@ const SignUpForm = (props) => {
                                     Sign Up
                                 </motion.button>
                             </div>
-                            {
-                                errorMessage && (
-                                    <p style={{color: "red"}}>{errorMessage}</p>
-                                )
-                            }
                         </form>
                     </div>
                 </div>) : (
