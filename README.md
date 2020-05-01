@@ -21,6 +21,7 @@ This is a boilerplate for MERN projects.
 * Delete account
 * Add expiry to JWT
 * Add rate limiting
+* Replace "proxy" in package.json by valid CORS mechanism
 
 
 ## Built With

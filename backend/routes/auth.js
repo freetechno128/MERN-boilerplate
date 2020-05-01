@@ -13,10 +13,10 @@ const loginQuerySchema = Joi.object({
 // /auth/signup endpoint
 authRouter.post("/signup", validator.body(loginQuerySchema),
     (req, res, next) => {
-        User.findOne({ username: req.body.username }, (err, existingUser) => {
-            if (err) {
+        User.findOne({ username: req.body.username }, (error, existingUser) => {
+            if (error) {
                 res.status(500);
-                return next(err);
+                return next(error);
             } 
             // Validate if the username is already used
             else if (existingUser !== null) {
@@ -38,13 +38,13 @@ authRouter.post("/signup", validator.body(loginQuerySchema),
 
 authRouter.post("/login", validator.body(loginQuerySchema),
     (req, res, next) => {
-    User.findOne({ username: req.body.username.toLowerCase() }, (err, user) => {
-        if (err) {
+    User.findOne({ username: req.body.username.toLowerCase() }, (error, user) => {
+        if (error) {
             res.status(500);
-            return next(err);
+            return next(error);
         } else if (!user) {
             res.status(403);
-            return next(new Error("Username or password are incorrect"));
+            return res.send("Username or password are incorrect");
         }
         user.checkPassword(req.body.password, (err, match) => {
             if (err) return res.status(500).send(err);
